@@ -28,7 +28,7 @@ export function Projects() {
       try {
         setLoading(true);
         // تأكدي أن هذا الرابط هو الذي يعمل لديكِ في المتصفح
-        const response = await axios.get("https://nada-portfolio-api.onrender.com/projects");
+        const response = await axios.get("https://nada-portfolio-api.onrender.com/api/projects");
 
         // استخراج البيانات من الـ Resource
         const fetchedData = response.data.data || response.data;
