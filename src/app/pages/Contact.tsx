@@ -33,7 +33,7 @@ export function Contact() {
     try {
       // الربط مع Laravel API
       // ملاحظة: تأكدي من أن السيرفر يعمل على هذا الرابط
-      await axios.post("http://127.0.0.1:8000/api/contact", formData);
+      await axios.post("https://nada-portfolio-api.onrender.com/contact", formData);
 
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
