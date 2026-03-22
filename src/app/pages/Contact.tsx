@@ -31,28 +31,31 @@ export function Contact() {
     setError("");
 
     try {
-      // الربط مع Laravel API
-      // ملاحظة: تأكدي من أن السيرفر يعمل على هذا الرابط
-      await axios.post("https://nada-portfolio-api.onrender.com/api/contact", formData);
+      // إرسال الطلب للرابط الصحيح على Render
+      const response = await axios.post("https://nada-portfolio-api.onrender.com/api/contact", formData);
 
+      console.log("Response:", response.data); // للتأكد في الـ Console
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
 
-      // إخفاء رسالة النجاح بعد 5 ثوانٍ
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (err: any) {
       console.error("Error sending message:", err);
-      setError("عذراً، تعذر إرسال الرسالة حالياً. يرجى المحاولة لاحقاً.");
+      // تحسين: إظهار رسالة الخطأ القادمة من اللارافيل إذا وجدت
+      const errorMessage = err.response?.data?.error || err.response?.data?.message || "عذراً، تعذر إرسال الرسالة حالياً.";
+      setError(errorMessage);
     } finally {
       setIsLoading(false);
     }
+
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const contactInfo = [
