@@ -10,8 +10,8 @@ export function Navbar() {
   const links = [
     { name: "الرئيسية", path: "/" },
     { name: "عني", path: "/about" },
-    { name: "أعمالي", path: "/api/projects" },
-    { name: "تواصل معي", path: "/api/contact" },
+    { name: "أعمالي", path: "/projects" },
+    { name: "تواصل معي", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -68,7 +68,7 @@ export function Navbar() {
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <Link to="/api/contact">
+            <Link to="/contact">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -110,7 +110,7 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <Link to="/api/contact" onClick={() => setIsOpen(false)}>
+            <Link to="/contact" onClick={() => setIsOpen(false)}>
               <button className="w-full mt-4 px-6 py-2.5 bg-gradient-to-r from-primary to-secondary text-white rounded-lg">
                 ابدأ مشروعك
               </button>

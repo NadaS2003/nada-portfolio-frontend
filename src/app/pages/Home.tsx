@@ -126,7 +126,7 @@ export function Home() {
                     transition={{ delay: 0.5 }}
                     className="flex flex-wrap gap-4"
                 >
-                  <Link to="/api/contact">
+                  <Link to="/contact">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
@@ -136,7 +136,7 @@ export function Home() {
                       <ChevronLeft className="w-4 h-4" />
                     </motion.button>
                   </Link>
-                  <Link to="/api/projects">
+                  <Link to="/projects">
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
